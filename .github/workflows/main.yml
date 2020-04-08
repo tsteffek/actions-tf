@@ -1,0 +1,9 @@
+name: actions-tf
+on: [push]
+
+jobs:
+        test_job:
+                container: Dockerfile
+                steps:
+                        - name: run
+                          run: echo 'stuff'
