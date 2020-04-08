@@ -3,6 +3,7 @@ on: [push]
 
 jobs:
         test_job:
+                runs-on: ubuntu-latest
                 container: Dockerfile
                 steps:
                         - name: run
