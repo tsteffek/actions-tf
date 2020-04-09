@@ -5,6 +5,8 @@ jobs:
         test_job:
                 runs-on: ubuntu-latest
                 steps:
+                        - name: Checkout
+                          uses: actions/checkout@v2
                         - name: build
                           run: docker build -t image .
                         - name: run
