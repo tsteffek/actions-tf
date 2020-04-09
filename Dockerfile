@@ -1,7 +1,8 @@
-FROM alpine:3.10
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
+COPY test.py .
 
-RUN ls
-COPY test.sh .
-RUN ls
+# Install package.
+RUN pip install tensorflow-gpu
 
-CMD exit 0
+# Run training, then export to .hdf5
+CMD python test.py
