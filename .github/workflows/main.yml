@@ -8,8 +8,6 @@ jobs:
                         - name: Checkout
                           uses: actions/checkout@v2
                         - name: build
-                          run: |
-                                  ls
-                                  docker build -t image .
+                          run: docker build -t image .
                         - name: run
                           run: docker run image sh test.sh
