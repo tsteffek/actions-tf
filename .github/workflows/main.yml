@@ -4,7 +4,8 @@ on: [push]
 jobs:
         test_job:
                 runs-on: ubuntu-latest
-                container: Dockerfile
                 steps:
+                        - name: build
+                          run: docker build -t image .
                         - name: run
-                          run: echo 'stuff'
+                          run: docker run image
