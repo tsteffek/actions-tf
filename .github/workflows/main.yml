@@ -1,19 +1,10 @@
 name: actions-tf
 on: [push]
-env:
-        TEST: ${{secrets.REPO}}
 jobs:
         test_job:
                 runs-on: ubuntu-latest
                 steps:
-                        - run: echo $IMAGE_NAME
-                        #- name: Checkout
-                          #uses: actions/checkout@v2
-                          #- name: build
-                          #run: docker build -t image .
-                          #- name: run
-                          #run: docker run image python test.py
-                          #- name: repo name
-                          #run: |
-                          #      echo ${{ github.event.repository.name }}
-                          #      echo ${GITHUB_SHA::7}
+                        - run: echo $TEST
+                          env: 
+                                TEST: $("${{github.event.repository.name}} TEST" | tr '[A-Z]' '[a-z]')
+                        - run: echo $TEST
