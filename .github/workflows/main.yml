@@ -1,10 +1,16 @@
 name: actions-tf
 on: [push]
+env:
+        TEST: test
 jobs:
         test_job:
                 runs-on: ubuntu-latest
                 steps:
                         - run: echo $TEST
                           env: 
-                                TEST: $("${{github.event.repository.name}} TEST" | tr '[A-Z]' '[a-z]')
+                                TEST: $(echo "${{github.event.repository.name}} TEST" | tr '[A-Z]' '[a-z]')
+                        - run: echo $TEST
+                        - run: |
+                                TEST=$(echo "T123" | tr '[A-Z]' '[a-z]')
+                                echo $TEST
                         - run: echo $TEST
