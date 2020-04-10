@@ -13,5 +13,5 @@ jobs:
                           run: docker run image python test.py
                         - name: repo name
                           run: |
-                                echo ${{ github.repository.name }}
-                                echo ${GITHUB_SHA::8}
+                                echo ${{ github.event.repository.name }}
+                                echo ${GITHUB_SHA::7}
