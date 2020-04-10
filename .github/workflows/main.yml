@@ -1,17 +1,19 @@
 name: actions-tf
 on: [push]
-
+env:
+        TEST: ${{secrets.REPO}}
 jobs:
         test_job:
                 runs-on: ubuntu-latest
                 steps:
-                        - name: Checkout
-                          uses: actions/checkout@v2
-                        - name: build
-                          run: docker build -t image .
-                        - name: run
-                          run: docker run image python test.py
-                        - name: repo name
-                          run: |
-                                echo ${{ github.event.repository.name }}
-                                echo ${GITHUB_SHA::7}
+                        - run: echo $IMAGE_NAME
+                        #- name: Checkout
+                          #uses: actions/checkout@v2
+                          #- name: build
+                          #run: docker build -t image .
+                          #- name: run
+                          #run: docker run image python test.py
+                          #- name: repo name
+                          #run: |
+                          #      echo ${{ github.event.repository.name }}
+                          #      echo ${GITHUB_SHA::7}
