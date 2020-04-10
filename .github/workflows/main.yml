@@ -13,4 +13,5 @@ jobs:
                           run: docker run image python test.py
                         - name: repo name
                           run: |
-                                  echo ${{ toJson(github) }}
+                                echo ${{ github.repository.name }}
+                                echo ${GITHUB_SHA::8}
