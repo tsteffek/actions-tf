@@ -6,11 +6,13 @@ jobs:
         test_job:
                 runs-on: ubuntu-latest
                 steps:
-                        - run: echo $TEST
-                          env: 
-                                TEST: $(echo "${{github.event.repository.name}} TEST" | tr '[A-Z]' '[a-z]')
-                        - run: echo $TEST
-                        - run: |
-                                TEST=$(echo "T123" | tr '[A-Z]' '[a-z]')
-                                echo $TEST
-                        - run: echo $TEST
+                        - run: conda install pytorch
+                        - run: conda list
+                        #                        - run: echo $TEST
+                        #  env: 
+                        #        TEST: $(echo "${{github.event.repository.name}} TEST" | tr '[A-Z]' '[a-z]')
+                        #- run: echo $TEST
+                        #- run: |
+                        #        TEST=$(echo "T123" | tr '[A-Z]' '[a-z]')
+                        #        echo $TEST
+                        #- run: echo $TEST
